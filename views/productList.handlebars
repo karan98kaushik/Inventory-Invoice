@@ -1,0 +1,10 @@
+{{#each products}}
+<div class="card card-body mb-2 container">
+    <h4>Product Name: {{productName}}</h4>
+    <p>Serial Number: {{productSerialNo}}</p>
+    <p>Quantity Available: {{quantity}}</p>
+    <p>Price Per Unit: {{pricePerUnit}}</p>
+</div>
+{{else}}
+<p>No Product Available!</p>
+{{/each}}

@@ -45,7 +45,7 @@ app.get("/addProduct", (req, res) => {
 });
 
 // Process Form:
-app.post("/addProduct", (req, res) => {
+app.post("/productList", (req, res) => {
   let psn = req.body.productSerialNo;
   Product.findOne({ productSerialNo: psn }).then(product => {
     if (product.productSerialNo === psn) {
@@ -75,13 +75,13 @@ app.get("/productList", (req, res) => {
   });
 });
 
-app.post("/productList", (req, res) => {
-  Product.find({}).then(products => {
-    res.render("productList", {
-      products: products
-    });
-  });
-});
+// app.post("/productList", (req, res) => {
+//   Product.find({}).then(products => {
+//     res.render("productList", {
+//       products: products
+//     });
+//   });
+// });
 
 // Customer Info. Router:
 app.get("/customer", (req, res) => {

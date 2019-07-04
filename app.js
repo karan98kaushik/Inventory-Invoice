@@ -51,8 +51,9 @@ app.post("/addProduct", (req, res) => {
     if (product.productSerialNo === psn) {
       product.quantity = product.quantity + parseInt(req.body.quantity);
       product.save();
-      //res.redirect("/productList");
-    } else {
+      res.redirect("/productList");
+    } 
+  });
       const p = {
         productName: req.body.productName,
         productSerialNo: req.body.productSerialNo,
@@ -60,9 +61,9 @@ app.post("/addProduct", (req, res) => {
         pricePerUnit: req.body.pricePerUnit
       };
 
-      new Product(p).save().then();
-    }
-  });
+      new Product(p).save().then(resp => {
+        res.redirect("/productList");
+      });
 });
 
 // Product List Router:
